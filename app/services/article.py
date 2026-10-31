@@ -28,6 +28,7 @@ def create_article(db: Session, article: ArticleCreate) -> Article:
         url=url,
         category="",
         summary="",
+        status=ArticleStatus.PENDING.value,
     )
     db.add(db_article)
     db.commit()
