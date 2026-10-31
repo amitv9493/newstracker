@@ -1,3 +1,4 @@
+from app.helpers.enums import ArticleStatus
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, String, Text, null
@@ -14,6 +15,7 @@ class Article(Base):
     content = Column(Text, index=True)
     url = Column(String, index=True)
     category = Column(String, index=True)
+    status = Column(String, index=True, default=ArticleStatus.PENDING)
     summary = Column(Text, index=True)
     content_hash = Column(String, index=True, unique=True)
     created_at = Column(DateTime, default=datetime.now)
